@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Flashcards de mecânica automotiva do básico ao avançado. Motor, câmbio, transmissão, suspensão e freios explicados de forma simples.">
+    <meta property="og:title" content="Mecânica Flash – Flashcards de Mecânica Automotiva">
+    <meta property="og:description"
+        content="Estude motor, câmbio, freios e suspensão com flashcards didáticos e progresso real.">
+    <meta property="og:type" content="website">
+    <meta name="theme-color" content="#0f131a">
+    <title>Mecânica Flash – Flashcards de Mecânica Automotiva</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="app">
+        <!-- Cabeçalho -->
+        <header class="header">
+            <div class="brand">
+                <span class="brand-icon" aria-hidden="true">🔧</span>
+                <h1>Mecânica Flash</h1>
+            </div>
+            <div class="stats" aria-label="Estatísticas">
+                <div class="stat">
+                    <span class="stat-label">Dominados</span>
+                    <span id="stat-mastered" class="stat-value">0</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-label">Nível</span>
+                    <span id="stat-level" class="stat-value">1</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Progresso geral -->
+        <section class="progress-section" aria-label="Progresso">
+            <div class="progress-info">
+                <span id="progress-label">Nível 1 – Básico</span>
+                <span id="progress-count">0 / 0</span>
+            </div>
+            <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"
+                id="progress-bar">
+                <div class="progress-fill" id="progress-fill"></div>
+            </div>
+        </section>
+
+        <!-- Filtros -->
+        <section class="filters" aria-label="Filtros">
+            <div class="filter-group">
+                <span class="filter-title">Nível</span>
+                <div class="filter-btns" id="level-filters"></div>
+            </div>
+            <div class="filter-group">
+                <span class="filter-title">Tema</span>
+                <div class="filter-btns" id="theme-filters"></div>
+            </div>
+        </section>
+
+        <!-- Card -->
+        <main class="card-area">
+            <div id="card" class="card" tabindex="0">
+                <div class="card-inner">
+                    <!-- Frente -->
+                    <div class="card-face card-front">
+                        <span class="card-badge" id="card-theme">Motor</span>
+                        <h2 class="card-question" id="card-question">Carregando...</h2>
+                        <p class="card-hint">Pressione Espaço ou clique em “Virar card”</p>
+                        <button type="button" class="btn btn-primary" id="btn-flip">
+                            Virar card
+                        </button>
+                    </div>
+                    <!-- Verso -->
+                    <div class="card-face card-back">
+                        <div class="answer-block">
+                            <p class="answer-label">Resposta</p>
+                            <p class="answer-text" id="card-answer"></p>
+                        </div>
+                        <div class="explanation-block">
+                            <p class="explanation-label">Por quê?</p>
+                            <p class="explanation-text" id="card-explanation"></p>
+                        </div>
+                        <p class="card-source" id="card-source"></p>
+                        <div class="card-actions">
+                            <button type="button" class="btn btn-error" id="btn-wrong">
+                                <span aria-hidden="true">❌</span> Errei
+                            </button>
+                            <button type="button" class="btn btn-success" id="btn-correct">
+                                <span aria-hidden="true">✅</span> Acertei
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Rodapé -->
+        <footer class="footer">
+            <button type="button" class="btn btn-ghost" id="btn-reset">
+                Zerar progresso
+            </button>
+            <p class="credits">Fontes citadas em cada card · Dados salvos só no seu navegador</p>
+        </footer>
+
+        <!-- Modal de nível -->
+        <div id="modal" class="modal hidden" role="dialog" aria-labelledby="modal-title">
+            <div class="modal-box">
+                <h2 id="modal-title">Nível desbloqueado!</h2>
+                <p id="modal-msg"></p>
+                <button type="button" class="btn btn-primary" id="btn-modal-ok">Continuar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="data/cards.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
